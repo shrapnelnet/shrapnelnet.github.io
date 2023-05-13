@@ -1,6 +1,6 @@
 const getSong = () => {
     document.body.style.display = "none";
-    fetch("https://cors-anywhere.herokuapp.com/https://europe-west2-tyler-dev-env.cloudfunctions.net/lastfm-get-song", {
+    fetch("https://europe-west2-tyler-dev-env.cloudfunctions.net/lastfm-get-song", {
         headers: {
             "Access-Control-Allow-Origin": "*"
         }
