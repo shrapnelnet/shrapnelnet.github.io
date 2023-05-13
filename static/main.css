@@ -1,0 +1,60 @@
+* {
+    font-family: 'Roboto Mono', monospace;
+    background-color: #111111;
+    color: white;
+    text-decoration: none;
+}
+
+.top-pad {
+    padding-top: 5px;
+}
+
+.header {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.rounded {
+    border-radius: 50%;
+    height: 100px;
+    width: 100px
+}
+
+.bound {
+    max-width: 50%;
+    margin: 0 auto;
+}
+
+.new-line {
+    padding-top: 20px;
+}
+
+.vertical-center {
+    vertical-align: middle;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.bullets {
+    list-style-position: inside;
+    white-space: nowrap;
+}
+
+.flex-bullets {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.pad-top-big {
+    padding-top: 50px;
+}
+
+.horizontal-center {
+    display: flex;
+    justify-content: center;
+}
