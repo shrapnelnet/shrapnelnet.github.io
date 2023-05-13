@@ -1,10 +1,5 @@
 const getSong = () => {
-    document.body.style.display = "none";
-    fetch("https://europe-west2-tyler-dev-env.cloudfunctions.net/lastfm-get-song", {
-        headers: {
-            "Access-Control-Allow-Origin": "*"
-        }
-    })
+    fetch("https://europe-west2-tyler-dev-env.cloudfunctions.net/lastfm-get-song")
         .then((res) => res.json())
         .then((res) => {
             const root = res.recenttracks.track[0];
@@ -31,11 +26,9 @@ const getSong = () => {
             metadata.forEach((data) => {
                 listeningTo.appendChild(data);
             })
-            document.body.style.display = "block";
         })
         .catch((err) => {
             console.error(err);
-            document.body.style.display = "block";
         });
 }
 
