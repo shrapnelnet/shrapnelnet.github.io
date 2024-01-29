@@ -1,35 +1,22 @@
 const getSong = () => {
-    fetch("https://europe-west2-tyler-dev-env.cloudfunctions.net/lastfm-get-song")
+    fetch("https://cloudflare-music-endpoint.shrapnelnet.workers.dev/")
         .then((res) => res.json())
         .then((res) => {
-            const root = res.recenttracks.track[0];
-            const image = root.image[2]["#text"];
-            const name = root.name;
-            const artist = root.artist["#text"];
-            return {
-                image: image,
-                name: name,
-                artist: artist
-            }
+            const { image, artist, name } = res
+            const parent = document.getElementById("lastfm")
+            const cover = document.createElement("img")
+            const artistElement = document.createElement("h3")
+            const nameElement = document.createElement("h2")
+            nameElement.innerHTML = name
+            artistElement.innerHTML = `by ${artist}`
+            cover.src = image
+            cover.alt = `album art for ${name} by ${artist}`
+            cover.width = 256
+            cover.height = 256
+            parent.appendChild(cover)
+            parent.appendChild(nameElement)
+            parent.appendChild(artistElement)
         })
-        .then((song) => {
-            let image = document.createElement("img");
-            image.src = song.image;
-            image.width = 174;
-            image.height = 174;
-            let name = document.createElement("h3");
-            name.innerText = song.name;
-            let artist = document.createElement("p");
-            artist.innerText = song.artist;
-            const metadata = [image, name, artist];
-            let listeningTo = document.getElementById("lastfm");
-            metadata.forEach((data) => {
-                listeningTo.appendChild(data);
-            })
-        })
-        .catch((err) => {
-            console.error(err);
-        });
 }
 
 getSong();
